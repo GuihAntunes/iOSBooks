@@ -18,6 +18,6 @@ class BooksClient {
     }
     
     func fetchBooksList() -> Promise<BooksList> {
-        return apiClient.request(model: BooksList.self, BooksAPI.list.request)
+        return apiClient.request(model: BooksList.self, BooksAPI.list(startingIndex: 0).request)
     }
 }

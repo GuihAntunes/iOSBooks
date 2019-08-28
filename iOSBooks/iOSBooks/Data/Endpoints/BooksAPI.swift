@@ -10,12 +10,19 @@ import Foundation
 
 enum BooksAPI: Endpoint {
     
-    case list
+    case list(startingIndex: Int)
     
     var path: String {
         switch self {
         case .list:
             return "https://www.googleapis.com/books/v1/volumes"
+        }
+    }
+    
+    var startingIndex: Int {
+        switch self {
+        case .list(let index):
+            return index
         }
     }
     
@@ -45,7 +52,7 @@ enum BooksAPI: Endpoint {
         case .list:
             let subjectItem = URLQueryItem(name: "q", value: "ios")
             let maxResultsItem = URLQueryItem(name: "maxResults", value: "20")
-            let startIndexItem = URLQueryItem(name: "startIndex", value: "0")
+            let startIndexItem = URLQueryItem(name: "startIndex", value: String(startingIndex))
             return [subjectItem, startIndexItem, maxResultsItem]
         }
     }

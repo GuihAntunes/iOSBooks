@@ -164,6 +164,7 @@
 		7447D3732316F18400E01BD3 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				7447D3632316E02500E01BD3 /* Endpoint.swift */,
 				7447D3612316DECA00E01BD3 /* BooksAPI.swift */,
 			);
 			path = Endpoints;
@@ -174,7 +175,6 @@
 			children = (
 				7447D35D2316C91700E01BD3 /* APIClient.swift */,
 				7447D35F2316CB1200E01BD3 /* Reachability.swift */,
-				7447D3632316E02500E01BD3 /* Endpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -602,6 +602,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AH86L34EQ;
 				INFOPLIST_FILE = iOSBooksTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +625,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AH86L34EQ;
 				INFOPLIST_FILE = iOSBooksTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
