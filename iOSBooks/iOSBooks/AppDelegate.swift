@@ -6,16 +6,27 @@
 //  Copyright © 2019 Guilherme Antunes. All rights reserved.
 //
 
+import IQKeyboardManagerSwift
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var coordinator: AppCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else {
+            print("window is unexpectedly nil")
+            return false
+        }
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+        coordinator = AppCoordinator(window: window)
+        coordinator?.start()
+        
         return true
     }
 
@@ -38,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        window = nil
     }
 
 

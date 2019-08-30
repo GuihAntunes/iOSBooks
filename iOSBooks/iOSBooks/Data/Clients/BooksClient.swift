@@ -17,7 +17,7 @@ class BooksClient {
         self.apiClient = apiClient
     }
     
-    func fetchBooksList() -> Promise<BooksList> {
-        return apiClient.request(model: BooksList.self, BooksAPI.list(startingIndex: 0).request)
+    func fetchBooksList(startingIndex index: Int) -> Promise<BooksList> {
+        return apiClient.request(model: BooksList.self, BooksAPI.list(startingIndex: index).request)
     }
 }

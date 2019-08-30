@@ -8,6 +8,7 @@ target 'iOSBooks' do
   # Pods for iOSBooks
   pod 'PromiseKit'
   pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', "~>5.1"
 
   target 'iOSBooksTests' do
     inherit! :search_paths

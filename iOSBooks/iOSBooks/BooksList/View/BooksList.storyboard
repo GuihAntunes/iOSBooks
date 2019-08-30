@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OP2-Hi-nAA">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Books List View Controller-->
+        <scene sceneID="tKt-xs-1sT">
+            <objects>
+                <viewController storyboardIdentifier="BooksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OP2-Hi-nAA" customClass="BooksListViewController" customModule="iOSBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o2V-SP-MLj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dZ8-Oo-VhO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aY8-YO-Zdx">
+                                    <size key="itemSize" width="157" height="203"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BooksCell" id="8H9-Yl-2mK" customClass="BooksCell" customModule="iOSBooks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="203"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="157" height="203"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXi-PM-ZxC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="203"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="mXi-PM-ZxC" firstAttribute="top" secondItem="8H9-Yl-2mK" secondAttribute="top" id="C5r-41-tog"/>
+                                            <constraint firstItem="mXi-PM-ZxC" firstAttribute="leading" secondItem="8H9-Yl-2mK" secondAttribute="leading" id="FEm-j9-QGY"/>
+                                            <constraint firstAttribute="trailing" secondItem="mXi-PM-ZxC" secondAttribute="trailing" id="Saw-Md-JjD"/>
+                                            <constraint firstAttribute="bottom" secondItem="mXi-PM-ZxC" secondAttribute="bottom" id="owZ-zL-qDW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="bookImageView" destination="mXi-PM-ZxC" id="2Uk-JS-5F8"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a3i-lK-wnu" firstAttribute="trailing" secondItem="dZ8-Oo-VhO" secondAttribute="trailing" id="5Sc-Ve-axN"/>
+                            <constraint firstItem="dZ8-Oo-VhO" firstAttribute="leading" secondItem="a3i-lK-wnu" secondAttribute="leading" id="Dpe-ig-8h2"/>
+                            <constraint firstAttribute="bottom" secondItem="dZ8-Oo-VhO" secondAttribute="bottom" id="Fj2-HG-Eux"/>
+                            <constraint firstItem="dZ8-Oo-VhO" firstAttribute="top" secondItem="o2V-SP-MLj" secondAttribute="top" id="W6A-dY-6O1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a3i-lK-wnu"/>
+                    </view>
+                    <connections>
+                        <outlet property="booksCollectionView" destination="dZ8-Oo-VhO" id="VqP-Oz-S5o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gqx-UV-Y3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.81159420289856" y="98.4375"/>
+        </scene>
+    </scenes>
+</document>
