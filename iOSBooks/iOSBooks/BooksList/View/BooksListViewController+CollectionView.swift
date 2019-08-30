@@ -20,4 +20,8 @@ extension BooksListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return viewModel?.cellForItem(inCollectionView: collectionView, atIndexPath: indexPath) ?? UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.selectBook(atIndexPath: indexPath)
+    }
 }

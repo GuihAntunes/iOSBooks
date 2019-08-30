@@ -32,6 +32,10 @@
 		74ADE9C52319730F006D2644 /* BooksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9C42319730F006D2644 /* BooksCell.swift */; };
 		74ADE9C7231973B5006D2644 /* BooksListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9C6231973B5006D2644 /* BooksListViewController+CollectionView.swift */; };
 		74ADE9C9231981F5006D2644 /* BooksListViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9C8231981F5006D2644 /* BooksListViewController+View.swift */; };
+		74ADE9D023199C1F006D2644 /* BookDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ADE9CF23199C1F006D2644 /* BookDetail.storyboard */; };
+		74ADE9D223199D97006D2644 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9D123199D97006D2644 /* BookDetailViewController.swift */; };
+		74B9185223199E8F00ADDEA4 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */; };
+		74B9185423199F4500ADDEA4 /* BookDetailViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */; };
 		768F74E39672B1F50C632913 /* Pods_iOSBooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2FDB2EC5907498F6A3C173 /* Pods_iOSBooks.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,10 @@
 		74ADE9C42319730F006D2644 /* BooksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCell.swift; sourceTree = "<group>"; };
 		74ADE9C6231973B5006D2644 /* BooksListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BooksListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		74ADE9C8231981F5006D2644 /* BooksListViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BooksListViewController+View.swift"; sourceTree = "<group>"; };
+		74ADE9CF23199C1F006D2644 /* BookDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookDetail.storyboard; sourceTree = "<group>"; };
+		74ADE9D123199D97006D2644 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
+		74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDetailViewController+View.swift"; sourceTree = "<group>"; };
 		E6741F045EBC12BB315EE1CB /* Pods-iOSBooks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBooks.debug.xcconfig"; path = "Target Support Files/Pods-iOSBooks/Pods-iOSBooks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +135,7 @@
 			children = (
 				74ADE9B5231969F0006D2644 /* Coordinators */,
 				7447D3762316F6C700E01BD3 /* BooksList */,
+				74ADE9D323199E0F006D2644 /* BookDetail */,
 				7447D3712316F16E00E01BD3 /* Data */,
 				0E3964D72314BB470093738B /* AppDelegate.swift */,
 				0E3964DE2314BB4A0093738B /* Assets.xcassets */,
@@ -259,6 +268,33 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		74ADE9D323199E0F006D2644 /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				74B9184F23199E6D00ADDEA4 /* View */,
+				74B9185023199E7700ADDEA4 /* ViewModel */,
+			);
+			path = BookDetail;
+			sourceTree = "<group>";
+		};
+		74B9184F23199E6D00ADDEA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74ADE9CF23199C1F006D2644 /* BookDetail.storyboard */,
+				74ADE9D123199D97006D2644 /* BookDetailViewController.swift */,
+				74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74B9185023199E7700ADDEA4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E4186846F20EA500EF61D605 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +393,7 @@
 			files = (
 				0E3964E22314BB4A0093738B /* LaunchScreen.storyboard in Resources */,
 				7447D37E2316F72A00E01BD3 /* BooksList.storyboard in Resources */,
+				74ADE9D023199C1F006D2644 /* BookDetail.storyboard in Resources */,
 				0E3964DF2314BB4A0093738B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +497,7 @@
 				74ADE9C223196E99006D2644 /* Identifiable.swift in Sources */,
 				7447D36C2316F12800E01BD3 /* Item.swift in Sources */,
 				7447D3682316E57500E01BD3 /* Book.swift in Sources */,
+				74B9185423199F4500ADDEA4 /* BookDetailViewController+View.swift in Sources */,
 				74ADE9BE23196CE3006D2644 /* AppCoordinatorDependencyInjector.swift in Sources */,
 				7447D3702316F14D00E01BD3 /* SalesInfo.swift in Sources */,
 				7447D37A2316F71200E01BD3 /* BooksListViewModel.swift in Sources */,
@@ -467,12 +505,14 @@
 				7447D37C2316F71D00E01BD3 /* BooksListViewController.swift in Sources */,
 				74ADE9C7231973B5006D2644 /* BooksListViewController+CollectionView.swift in Sources */,
 				74ADE9C52319730F006D2644 /* BooksCell.swift in Sources */,
+				74ADE9D223199D97006D2644 /* BookDetailViewController.swift in Sources */,
 				74ADE9B823196A7A006D2644 /* AppCoordinator.swift in Sources */,
 				0E3964D82314BB470093738B /* AppDelegate.swift in Sources */,
 				74ADE9C023196E44006D2644 /* UIViewController+QuickInstance.swift in Sources */,
 				7447D3602316CB1200E01BD3 /* Reachability.swift in Sources */,
 				7447D35E2316C91700E01BD3 /* APIClient.swift in Sources */,
 				7447D3642316E02500E01BD3 /* Endpoint.swift in Sources */,
+				74B9185223199E8F00ADDEA4 /* BookDetailViewModel.swift in Sources */,
 				7447D36A2316F11800E01BD3 /* BooksList.swift in Sources */,
 				7447D3662316E3C100E01BD3 /* BooksClient.swift in Sources */,
 				7447D3622316DECA00E01BD3 /* BooksAPI.swift in Sources */,

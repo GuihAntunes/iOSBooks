@@ -13,7 +13,7 @@ class BooksCell: UICollectionViewCell {
     @IBOutlet weak var bookImageView: UIImageView?
     
     func setup(withBook book: Book?) {
-        if let book = book, let bookURLString = book.imageLinks?.thumbnail, let url = URL(string: bookURLString) {
+        if let book = book, let bookURLString = book.imageLinks?.smallThumbnail, let url = URL(string: bookURLString) {
             bookImageView?.kf.setImage(with: url)
         }
     }

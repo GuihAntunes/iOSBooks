@@ -27,10 +27,10 @@ extension UIViewController {
 extension UIViewController {
     
     func setBackButton(_ backFunction: Selector) {
-//        navigationItem.hidesBackButton = true
-//        let newBackButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .plain, target: self, action: backFunction)
-//        newBackButton.title = "Voltar"
-//        navigationItem.leftBarButtonItem = newBackButton
+        navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .plain, target: self, action: backFunction)
+        newBackButton.title = "Voltar"
+        navigationItem.leftBarButtonItem = newBackButton
     }
     
 }

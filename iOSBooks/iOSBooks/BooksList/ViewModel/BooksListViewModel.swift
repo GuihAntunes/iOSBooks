@@ -10,6 +10,8 @@ import UIKit
 
 protocol BooksListViewModelProtocol {
     func loadBooks()
+    func selectBook(atIndexPath indexPath: IndexPath)
+    func presentPreviousStep()
     func numberOfSections() -> Int
     func numberOfItemsInSection() -> Int
     func cellForItem(inCollectionView collectionView: UICollectionView, atIndexPath indexPath: IndexPath) -> UICollectionViewCell
@@ -20,7 +22,9 @@ class BooksListViewModel: BooksListViewModelProtocol {
     var items: [Item] = []
     var service = BooksClient()
     var startingIndex = 0
-    var view: BooksListViewControllerPresentable?
+    weak var view: BooksListViewControllerPresentable?
+    var selectedBook: Item?
+    var coordinator: AppCoordinatorProtocol?
     
     func numberOfSections() -> Int {
         return 1
@@ -53,5 +57,15 @@ class BooksListViewModel: BooksListViewModelProtocol {
                 }
         }
         
+    }
+    
+    func selectBook(atIndexPath indexPath: IndexPath) {
+        selectedBook = nil
+        selectedBook = items[indexPath.item]
+        coordinator?.presentNextStep()
+    }
+    
+    func presentPreviousStep() {
+        coordinator?.presentPreviousStep()
     }
 }

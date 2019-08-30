@@ -19,4 +19,9 @@ class BooksListViewController: UIViewController {
         setupCollectionView()
         viewModel?.loadBooks()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
 }

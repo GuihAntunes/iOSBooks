@@ -8,10 +8,21 @@
 
 import UIKit
 
-class AppCoordinator {
+protocol AppCoordinatorProtocol: class {
+    func presentNextStep()
+    func presentPreviousStep()
+}
+
+enum RoutingState {
+    case list
+    case detail
+}
+
+class AppCoordinator: AppCoordinatorProtocol {
     
     lazy var injector = AppCoordinatorDependencyInjector()
     var window: UIWindow
+    var state: RoutingState = .list
     
     init(window: UIWindow) {
         self.window = window
@@ -25,5 +36,28 @@ class AppCoordinator {
     
     func setupNavigationController() {
         injector.navigationController.viewControllers.append(injector.booksListViewController)
+        injector.booksListViewModel.coordinator = self
+    }
+    
+    func presentNextStep() {
+        switch state {
+        case .list:
+            injector.injectNewBook()
+            injector.bookDetailViewModel.coordinator = self
+            state = .detail
+            injector.navigationController.pushViewController(injector.bookDetailViewController, animated: true)
+        case.detail:
+            print("Nenhuma tela para frente neste fluxo")
+        }
+    }
+    
+    func presentPreviousStep() {
+        switch state {
+        case .list:
+            print("Nenhuma tela para trás neste fluxo")
+        case.detail:
+            state = .list
+            injector.navigationController.popViewController(animated: true)
+        }
     }
 }
