@@ -15,6 +15,11 @@ protocol BookDetailViewControllerPresentable: class {
 
 extension BookDetailViewController: BookDetailViewControllerPresentable {
     
+    func configureTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(openBuyLink))
+        buyLinkLabel?.addGestureRecognizer(tap)
+    }
+    
     func setupView() {
         title = viewModel?.getScreenTitle()
         bookImageView?.kf.setImage(with: viewModel?.getBookImageLink())

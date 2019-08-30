@@ -25,6 +25,7 @@ class BookDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         setupView()
         setupNavigation()
+        configureTap()
     }
     
     override func viewDidAppear(_ animated: Bool) {

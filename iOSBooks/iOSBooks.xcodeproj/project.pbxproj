@@ -36,6 +36,7 @@
 		74ADE9D223199D97006D2644 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9D123199D97006D2644 /* BookDetailViewController.swift */; };
 		74B9185223199E8F00ADDEA4 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */; };
 		74B9185423199F4500ADDEA4 /* BookDetailViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */; };
+		74B918562319AE0300ADDEA4 /* BookDetailViewController+Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B918552319AE0300ADDEA4 /* BookDetailViewController+Safari.swift */; };
 		768F74E39672B1F50C632913 /* Pods_iOSBooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2FDB2EC5907498F6A3C173 /* Pods_iOSBooks.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		74ADE9D123199D97006D2644 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDetailViewController+View.swift"; sourceTree = "<group>"; };
+		74B918552319AE0300ADDEA4 /* BookDetailViewController+Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDetailViewController+Safari.swift"; sourceTree = "<group>"; };
 		E6741F045EBC12BB315EE1CB /* Pods-iOSBooks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBooks.debug.xcconfig"; path = "Target Support Files/Pods-iOSBooks/Pods-iOSBooks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 				74ADE9CF23199C1F006D2644 /* BookDetail.storyboard */,
 				74ADE9D123199D97006D2644 /* BookDetailViewController.swift */,
 				74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */,
+				74B918552319AE0300ADDEA4 /* BookDetailViewController+Safari.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				74ADE9C52319730F006D2644 /* BooksCell.swift in Sources */,
 				74ADE9D223199D97006D2644 /* BookDetailViewController.swift in Sources */,
 				74ADE9B823196A7A006D2644 /* AppCoordinator.swift in Sources */,
+				74B918562319AE0300ADDEA4 /* BookDetailViewController+Safari.swift in Sources */,
 				0E3964D82314BB470093738B /* AppDelegate.swift in Sources */,
 				74ADE9C023196E44006D2644 /* UIViewController+QuickInstance.swift in Sources */,
 				7447D3602316CB1200E01BD3 /* Reachability.swift in Sources */,

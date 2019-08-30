@@ -39,7 +39,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4s-rP-z8C">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baa-VJ-mqK">
                                         <rect key="frame" x="0.0" y="71" width="390" height="23.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -70,7 +70,7 @@
                         <outlet property="bookAuthorsLabel" destination="mU9-Pt-17a" id="3vw-bk-jyF"/>
                         <outlet property="bookImageView" destination="TpO-b0-I35" id="XbF-1j-3nc"/>
                         <outlet property="bookTitleLabel" destination="768-XD-nlZ" id="z92-Hg-c8F"/>
-                        <outlet property="buyLinkLabel" destination="O4s-rP-z8C" id="wxf-dc-syR"/>
+                        <outlet property="buyLinkLabel" destination="baa-VJ-mqK" id="2ro-Qf-yqx"/>
                         <outlet property="descriptionTextView" destination="AgA-qA-aED" id="zGM-Go-3v2"/>
                     </connections>
                 </viewController>

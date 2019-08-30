@@ -16,6 +16,7 @@ protocol BookDetailViewModelProtocol {
     func getBookImageLink() -> URL?
     func presentPreviousStep()
     func getScreenTitle() -> String?
+    func getBookBuyLinkURL() -> URL?
 }
 
 class BookDetailViewModel: BookDetailViewModelProtocol {
@@ -62,5 +63,13 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
     
     func presentPreviousStep() {
         coordinator?.presentPreviousStep()
+    }
+    
+    func getBookBuyLinkURL() -> URL? {
+        if let urlString = selectedBook?.salesInfo?.buyLink {
+            return URL(string: urlString)
+        }
+        
+        return nil
     }
 }
