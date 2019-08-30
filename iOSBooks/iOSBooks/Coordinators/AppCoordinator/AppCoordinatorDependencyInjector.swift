@@ -13,6 +13,7 @@ class AppCoordinatorDependencyInjector {
         let navigation = UINavigationController()
         navigation.navigationBar.prefersLargeTitles = true
         navigation.navigationBar.barStyle = .black
+        navigation.navigationBar.tintColor = .white
         return navigation
     }()
     
@@ -26,4 +27,21 @@ class AppCoordinatorDependencyInjector {
     lazy var booksListViewModel: BooksListViewModel = {
         return BooksListViewModel()
     }()
+    
+    lazy var bookDetailViewController: BookDetailViewController = {
+        let controller: BookDetailViewController = BookDetailViewController.instantiate()
+        bookDetailViewModel.view = controller
+        controller.viewModel = bookDetailViewModel
+        return controller
+    }()
+    
+    lazy var bookDetailViewModel: BookDetailViewModel = {
+        let viewModel = BookDetailViewModel()
+        viewModel.selectedBook = booksListViewModel.selectedBook
+        return viewModel
+    }()
+    
+    func injectNewBook() {
+        bookDetailViewModel.selectedBook = booksListViewModel.selectedBook
+    }
 }

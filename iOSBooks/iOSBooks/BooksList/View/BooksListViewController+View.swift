@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BooksListViewControllerPresentable {
+protocol BooksListViewControllerPresentable: class {
     func reloadView()
     func presentError(message: String)
 }
@@ -26,5 +26,9 @@ extension BooksListViewController: BooksListViewControllerPresentable {
         title = "iOS Books"
         booksCollectionView?.dataSource = self
         booksCollectionView?.delegate = self
+    }
+    
+    func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
