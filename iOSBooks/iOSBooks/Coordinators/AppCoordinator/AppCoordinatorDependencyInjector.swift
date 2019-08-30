@@ -43,5 +43,6 @@ class AppCoordinatorDependencyInjector {
     
     func injectNewBook() {
         bookDetailViewModel.selectedBook = booksListViewModel.selectedBook
+        bookDetailViewModel.savedBook = booksListViewModel.selectedBookIsFavorite
     }
 }

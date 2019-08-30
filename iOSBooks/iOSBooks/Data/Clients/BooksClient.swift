@@ -12,12 +12,19 @@ import PromiseKit
 class BooksClient {
     
     let apiClient: APIClient
+    let coreDataClient: CoreDataClient
     
-    init(apiClient: APIClient = APIClient()) {
+    init(apiClient: APIClient = APIClient(), coreData: CoreDataClient = CoreDataClient()) {
         self.apiClient = apiClient
+        self.coreDataClient = coreData
     }
     
     func fetchBooksList(startingIndex index: Int) -> Promise<BooksList> {
         return apiClient.request(model: BooksList.self, BooksAPI.list(startingIndex: index).request)
     }
+    
+    func fetchSavedBooks() -> [Item] {
+        return coreDataClient.fetchAllSavedBooks()
+    }
+    
 }

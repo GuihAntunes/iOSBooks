@@ -15,6 +15,9 @@ protocol BooksListViewControllerPresentable: class {
 
 extension BooksListViewController: BooksListViewControllerPresentable {
     func reloadView() {
+        if let viewModel = viewModel {
+            title = viewModel.showFavorites ? "Favorites iOS Books" : "iOS Books"
+        }
         booksCollectionView?.reloadData()
     }
     
@@ -23,12 +26,26 @@ extension BooksListViewController: BooksListViewControllerPresentable {
     }
     
     func setupCollectionView()  {
-        title = "iOS Books"
         booksCollectionView?.dataSource = self
         booksCollectionView?.delegate = self
     }
     
     func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    @objc func fillWithSavedBooks() {
+        guard var viewModel = viewModel else { return }
+        if !viewModel.showFavorites {
+            viewModel.showFavorites.toggle()
+            viewModel.loadSavedBooks(shouldShowOnScreen: true)
+            return
+        }
+        viewModel.showFavorites.toggle()
+        reloadView()
+    }
+    
+    func setupFavoritesFilterButton() {
+        navigationItem.rightBarButtonItem = button
     }
 }

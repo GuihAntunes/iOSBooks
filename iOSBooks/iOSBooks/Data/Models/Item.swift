@@ -9,9 +9,15 @@
 import Foundation
 
 class Item: Codable {
-    let id: String?
-    let book: Book?
-    let salesInfo : SalesInfo?
+    var id: String?
+    var book: Book?
+    var salesInfo : SalesInfo?
+    
+    init() {
+        id = nil
+        book = nil
+        salesInfo = nil
+    }
     
     enum CodingKeys: String, CodingKey {
         case book = "volumeInfo"

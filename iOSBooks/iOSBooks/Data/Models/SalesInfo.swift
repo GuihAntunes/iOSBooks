@@ -9,6 +9,11 @@
 import Foundation
 
 class SalesInfo: Codable {
-    let country: String?
-    let buyLink: String?
+    var country: String?
+    var buyLink: String?
+    
+    init() {
+        country = nil
+        buyLink = nil
+    }
 }
