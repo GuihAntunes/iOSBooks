@@ -9,8 +9,13 @@
 import Foundation
 
 class ImageLinks: Codable {
-    let smallThumbnail: String?
-    let thumbnail: String?
+    var smallThumbnail: String?
+    var thumbnail: String?
+    
+    init() {
+        smallThumbnail = nil
+        thumbnail = nil
+    }
     
     enum CodingKeys: String, CodingKey {
         case smallThumbnail, thumbnail

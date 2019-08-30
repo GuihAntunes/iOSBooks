@@ -16,6 +16,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookAuthorsLabel: UILabel?
     @IBOutlet weak var buyLinkLabel: UILabel?
     @IBOutlet weak var descriptionTextView: UITextView?
+    @IBOutlet weak var favoriteButton: UIButton?
     
     // MARK: - Properties
     var viewModel: BookDetailViewModelProtocol?
@@ -36,4 +37,11 @@ class BookDetailViewController: UIViewController {
     @objc func dismissScreen() {
         viewModel?.presentPreviousStep()
     }
+    
+    // MARK: - Actions
+    @IBAction func saveBook(_ sender: UIButton) {
+        viewModel?.saveBookIfNeeded()
+        toggleFavoriteButton(sender)
+    }
+    
 }

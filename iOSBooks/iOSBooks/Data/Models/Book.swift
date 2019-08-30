@@ -9,11 +9,19 @@
 import Foundation
 
 class Book: Codable {
-    let authors: [String]?
-    let title: String?
-    let subtitle: String?
-    let description: String?
-    let imageLinks: ImageLinks?
+    var authors: [String]?
+    var title: String?
+    var subtitle: String?
+    var description: String?
+    var imageLinks: ImageLinks?
+    
+    init() {
+        authors = nil
+        title = nil
+        subtitle = nil
+        description = nil
+        imageLinks = nil
+    }
     
     enum CodingKeys: String, CodingKey {
         case authors, title, subtitle, description, imageLinks

@@ -37,6 +37,8 @@
 		74B9185223199E8F00ADDEA4 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */; };
 		74B9185423199F4500ADDEA4 /* BookDetailViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */; };
 		74B918562319AE0300ADDEA4 /* BookDetailViewController+Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B918552319AE0300ADDEA4 /* BookDetailViewController+Safari.swift */; };
+		74B918582319B2CF00ADDEA4 /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B918572319B2CF00ADDEA4 /* CoreDataClient.swift */; };
+		74B9185B2319B2DD00ADDEA4 /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74B918592319B2DD00ADDEA4 /* Book.xcdatamodeld */; };
 		768F74E39672B1F50C632913 /* Pods_iOSBooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2FDB2EC5907498F6A3C173 /* Pods_iOSBooks.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		74B9185123199E8F00ADDEA4 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		74B9185323199F4500ADDEA4 /* BookDetailViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDetailViewController+View.swift"; sourceTree = "<group>"; };
 		74B918552319AE0300ADDEA4 /* BookDetailViewController+Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDetailViewController+Safari.swift"; sourceTree = "<group>"; };
+		74B918572319B2CF00ADDEA4 /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
+		74B9185A2319B2DD00ADDEA4 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
 		E6741F045EBC12BB315EE1CB /* Pods-iOSBooks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBooks.debug.xcconfig"; path = "Target Support Files/Pods-iOSBooks/Pods-iOSBooks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				7447D3652316E3C100E01BD3 /* BooksClient.swift */,
+				74B918572319B2CF00ADDEA4 /* CoreDataClient.swift */,
+				74B918592319B2DD00ADDEA4 /* Book.xcdatamodeld */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -504,9 +510,11 @@
 				74ADE9BE23196CE3006D2644 /* AppCoordinatorDependencyInjector.swift in Sources */,
 				7447D3702316F14D00E01BD3 /* SalesInfo.swift in Sources */,
 				7447D37A2316F71200E01BD3 /* BooksListViewModel.swift in Sources */,
+				74B918582319B2CF00ADDEA4 /* CoreDataClient.swift in Sources */,
 				7447D36E2316F13A00E01BD3 /* ImageLinks.swift in Sources */,
 				7447D37C2316F71D00E01BD3 /* BooksListViewController.swift in Sources */,
 				74ADE9C7231973B5006D2644 /* BooksListViewController+CollectionView.swift in Sources */,
+				74B9185B2319B2DD00ADDEA4 /* Book.xcdatamodeld in Sources */,
 				74ADE9C52319730F006D2644 /* BooksCell.swift in Sources */,
 				74ADE9D223199D97006D2644 /* BookDetailViewController.swift in Sources */,
 				74ADE9B823196A7A006D2644 /* AppCoordinator.swift in Sources */,
@@ -786,6 +794,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		74B918592319B2DD00ADDEA4 /* Book.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				74B9185A2319B2DD00ADDEA4 /* Book.xcdatamodel */,
+			);
+			currentVersion = 74B9185A2319B2DD00ADDEA4 /* Book.xcdatamodel */;
+			path = Book.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0E3964CC2314BB470093738B /* Project object */;
 }

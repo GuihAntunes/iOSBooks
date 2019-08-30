@@ -17,6 +17,8 @@ protocol BookDetailViewModelProtocol {
     func presentPreviousStep()
     func getScreenTitle() -> String?
     func getBookBuyLinkURL() -> URL?
+    func saveBookIfNeeded()
+    var savedBook: Bool { get }
 }
 
 class BookDetailViewModel: BookDetailViewModelProtocol {
@@ -25,6 +27,8 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
     var selectedBook: Item?
     weak var view: BookDetailViewControllerPresentable?
     var coordinator: AppCoordinatorProtocol?
+    var service = CoreDataClient()
+    var savedBook: Bool = false
     
     // MARK: - ViewModel Protocol Methods
     func getBookTitle() -> String {
@@ -71,5 +75,20 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
         }
         
         return nil
+    }
+    
+    func saveBookIfNeeded() {
+        if savedBook {
+            deleteBook()
+            return
+        }
+        savedBook = true
+        service.saveBook(selectedBook)
+    }
+    
+    func deleteBook() {
+        savedBook = false
+        service.deleteBook(selectedBook)
+        
     }
 }

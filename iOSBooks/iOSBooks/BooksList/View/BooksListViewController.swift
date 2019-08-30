@@ -9,19 +9,25 @@
 import UIKit
 
 class BooksListViewController: UIViewController {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var booksCollectionView: UICollectionView?
 
     // MARK: - Properties
     var viewModel: BooksListViewModelProtocol?
-    @IBOutlet weak var booksCollectionView: UICollectionView?
+    lazy var button = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(fillWithSavedBooks))
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         setupCollectionView()
-        viewModel?.loadBooks()
+        setupFavoritesFilterButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        viewModel?.loadSavedBooks(shouldShowOnScreen: false)
+        viewModel?.showFavorites = false
+        viewModel?.loadBooks()
     }
 }
