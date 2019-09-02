@@ -6,7 +6,7 @@
 //  Copyright © 2019 Guilherme Antunes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol BookDetailViewModelProtocol {
     func getBookTitle() -> String
@@ -17,7 +17,7 @@ protocol BookDetailViewModelProtocol {
     func presentPreviousStep()
     func getScreenTitle() -> String?
     func getBookBuyLinkURL() -> URL?
-    func saveBookIfNeeded()
+    func saveBookIfNeeded(andImage image: UIImage?)
     var savedBook: Bool { get }
 }
 
@@ -27,7 +27,7 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
     var selectedBook: Item?
     weak var view: BookDetailViewControllerPresentable?
     var coordinator: AppCoordinatorProtocol?
-    var service = CoreDataClient()
+    var service: CoreDataClientProtocol?
     var savedBook: Bool = false
     
     // MARK: - ViewModel Protocol Methods
@@ -77,18 +77,18 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
         return nil
     }
     
-    func saveBookIfNeeded() {
+    func saveBookIfNeeded(andImage image: UIImage? = nil) {
         if savedBook {
             deleteBook()
             return
         }
         savedBook = true
-        service.saveBook(selectedBook)
+        service?.saveBook(selectedBook, withThumbnail: image)
     }
     
     func deleteBook() {
         savedBook = false
-        service.deleteBook(selectedBook)
+        service?.deleteBook(selectedBook)
         
     }
 }

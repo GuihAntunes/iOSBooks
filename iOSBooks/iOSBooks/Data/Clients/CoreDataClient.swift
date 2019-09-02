@@ -7,12 +7,19 @@
 //
 
 import CoreData
-import Foundation
 import UIKit
 
-class CoreDataClient {
-    func saveBook(_ item: Item?) {
-        guard let item = item, let context = context, let entity = NSEntityDescription.entity(forEntityName: "CoreDataBook", in: context) else { return }
+protocol CoreDataClientProtocol: class {
+    func saveBook(_ item: Item?, withThumbnail thumbnail: UIImage?)
+    func fetchAllSavedBooks() -> (books: [Item], images: [UIImage])
+    func deleteBook(_ book: Item?)
+}
+
+class CoreDataClient: CoreDataClientProtocol {
+    
+    func saveBook(_ item: Item?, withThumbnail thumbnail: UIImage? = nil) {
+        guard let item = item, let context = context, let entity = NSEntityDescription.entity(forEntityName: "CoreDataBook", in: context), let imageData = thumbnail?.pngData() else { return }
+        
         let coreDataBook = NSManagedObject(entity: entity, insertInto: context)
         coreDataBook.setValue(item.book?.title, forKey: "title")
         coreDataBook.setValue(item.id, forKey: "id")
@@ -20,6 +27,7 @@ class CoreDataClient {
         coreDataBook.setValue(item.salesInfo?.buyLink, forKey: "buyLink")
         coreDataBook.setValue(true, forKey: "isFavorite")
         coreDataBook.setValue(item.book?.authors?.first, forKey: "author")
+        coreDataBook.setValue(imageData, forKey: "image")
         
         do {
             try context.save()
@@ -28,12 +36,13 @@ class CoreDataClient {
         }
     }
     
-    func fetchAllSavedBooks() -> [Item] {
+    func fetchAllSavedBooks() -> (books: [Item], images: [UIImage]) {
         var books: [Item] = []
-        guard let context = context else { return [] }
+        var images: [UIImage] = []
+        guard let context = context else { return ([], []) }
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataBook")
         do {
-            guard let result = try context.fetch(fetchRequest) as? [NSManagedObject] else { return [] }
+            guard let result = try context.fetch(fetchRequest) as? [NSManagedObject] else { return ([], []) }
             for data in result {
                 let item = Item()
                 item.book = Book()
@@ -46,11 +55,17 @@ class CoreDataClient {
                 item.salesInfo?.buyLink = data.value(forKey: "buyLink") as? String
                 item.book?.title = data.value(forKey: "title") as? String
                 books.append(item)
+                
+                if let bookImageData = data.value(forKey: "image") as? Data, let bookImage = UIImage(data: bookImageData) {
+                    images.append(bookImage)
+                } else {
+                    images.append(UIImage())
+                }
             }
-            return books
+            return (books, images)
         } catch {
             print("Failed to load data from CoreData")
-            return []
+            return ([], [])
         }
     }
     

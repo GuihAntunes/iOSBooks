@@ -10,7 +10,7 @@ import UIKit
 
 extension BooksListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.numberOfItemsInSection() ?? 0
+        return viewModel?.numberOfItemsInSection(section) ?? 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -26,7 +26,7 @@ class BooksListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-        viewModel?.loadSavedBooks(shouldShowOnScreen: false)
+        viewModel?.loadSavedBooks()
         viewModel?.showFavorites = false
         viewModel?.loadBooks()
     }

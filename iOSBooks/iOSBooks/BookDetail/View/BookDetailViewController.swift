@@ -40,7 +40,7 @@ class BookDetailViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func saveBook(_ sender: UIButton) {
-        viewModel?.saveBookIfNeeded()
+        viewModel?.saveBookIfNeeded(andImage: bookImageView?.image)
         toggleFavoriteButton(sender)
     }
     

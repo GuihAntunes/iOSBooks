@@ -16,23 +16,14 @@ class BooksCell: UICollectionViewCell {
     
     // MARK: - Properties
     var selectedBook: Book?
-    lazy var imageCache = ImageCache(name: selectedBook?.title ?? "")
     
-    func setup(withBook book: Book?) {
+    func setup(withBook book: Book?, andImage image: UIImage? = nil) {
         selectedBook = book
-        if let image = imageCache.retrieveImageInMemoryCache(forKey: selectedBook?.subtitle ?? "") {
+        if let image = image {
             bookImageView?.image = image
         } else {
             if let book = book, let bookURLString = book.imageLinks?.smallThumbnail, let url = URL(string: bookURLString) {
-                bookImageView?.kf.setImage(with: url, options: [.cacheOriginalImage], completionHandler: { (result) in
-                    switch result {
-                    case .success(let result):
-                        self.imageCache.store(result.image, forKey: self.selectedBook?.subtitle ?? "")
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                })
-                
+                bookImageView?.kf.setImage(with: url)
             }
         }
         
