@@ -31,7 +31,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        descriptionTextView?.scrollRangeToVisible(NSRange(location:0, length:0))
+        descriptionTextView?.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }
 
     @objc func dismissScreen() {
