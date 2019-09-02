@@ -10,7 +10,7 @@ import Foundation
 
 class BooksList: Codable {
     let items: [Item]?
-    let totalItems : Int?
+    let totalItems: Int?
     
     enum CodingKeys: String, CodingKey {
         case items, totalItems

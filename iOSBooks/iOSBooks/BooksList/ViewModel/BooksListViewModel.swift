@@ -41,7 +41,7 @@ class BooksListViewModel: BooksListViewModelProtocol {
     func cellForItem(inCollectionView collectionView: UICollectionView, atIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         let cell: BooksCell = collectionView.dequeueReusableCell(for: indexPath)
         let book: Book?
-        var image: UIImage? = nil
+        var image: UIImage?
         if showFavorites {
             book = savedItems.books[indexPath.item].book
             image = savedItems.images[indexPath.item]

@@ -26,7 +26,7 @@ enum BooksAPI: Endpoint {
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         switch self {
         case .list:
             return nil

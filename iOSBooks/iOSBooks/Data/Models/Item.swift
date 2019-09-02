@@ -11,7 +11,7 @@ import Foundation
 class Item: Codable {
     var id: String?
     var book: Book?
-    var salesInfo : SalesInfo?
+    var salesInfo: SalesInfo?
     
     init() {
         id = nil

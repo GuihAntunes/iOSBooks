@@ -19,6 +19,7 @@ class BooksListViewController: UIViewController {
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupCollectionView()
         setupFavoritesFilterButton()
     }
