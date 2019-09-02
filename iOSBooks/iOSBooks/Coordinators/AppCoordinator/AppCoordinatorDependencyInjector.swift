@@ -25,7 +25,9 @@ class AppCoordinatorDependencyInjector {
     }()
     
     lazy var booksListViewModel: BooksListViewModel = {
-        return BooksListViewModel()
+        let viewModel = BooksListViewModel()
+        viewModel.service = BooksClient()
+        return viewModel
     }()
     
     lazy var bookDetailViewController: BookDetailViewController = {
@@ -38,6 +40,7 @@ class AppCoordinatorDependencyInjector {
     lazy var bookDetailViewModel: BookDetailViewModel = {
         let viewModel = BookDetailViewModel()
         viewModel.selectedBook = booksListViewModel.selectedBook
+        viewModel.service = CoreDataClient()
         return viewModel
     }()
     

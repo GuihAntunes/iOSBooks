@@ -9,7 +9,12 @@
 import Foundation
 import PromiseKit
 
-class BooksClient {
+protocol BooksClientProtocol: class {
+    func fetchBooksList(startingIndex index: Int) -> Promise<BooksList>
+    func fetchSavedBooks() -> (books: [Item], images: [UIImage])
+}
+
+class BooksClient: BooksClientProtocol {
     
     let apiClient: APIClient
     let coreDataClient: CoreDataClient

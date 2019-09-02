@@ -9,7 +9,13 @@
 import CoreData
 import UIKit
 
-class CoreDataClient {
+protocol CoreDataClientProtocol: class {
+    func saveBook(_ item: Item?, withThumbnail thumbnail: UIImage?)
+    func fetchAllSavedBooks() -> (books: [Item], images: [UIImage])
+    func deleteBook(_ book: Item?)
+}
+
+class CoreDataClient: CoreDataClientProtocol {
     
     func saveBook(_ item: Item?, withThumbnail thumbnail: UIImage? = nil) {
         guard let item = item, let context = context, let entity = NSEntityDescription.entity(forEntityName: "CoreDataBook", in: context), let imageData = thumbnail?.pngData() else { return }

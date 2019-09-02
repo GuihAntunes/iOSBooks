@@ -27,7 +27,7 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
     var selectedBook: Item?
     weak var view: BookDetailViewControllerPresentable?
     var coordinator: AppCoordinatorProtocol?
-    var service = CoreDataClient()
+    var service: CoreDataClientProtocol?
     var savedBook: Bool = false
     
     // MARK: - ViewModel Protocol Methods
@@ -83,12 +83,12 @@ class BookDetailViewModel: BookDetailViewModelProtocol {
             return
         }
         savedBook = true
-        service.saveBook(selectedBook, withThumbnail: image)
+        service?.saveBook(selectedBook, withThumbnail: image)
     }
     
     func deleteBook() {
         savedBook = false
-        service.deleteBook(selectedBook)
+        service?.deleteBook(selectedBook)
         
     }
 }

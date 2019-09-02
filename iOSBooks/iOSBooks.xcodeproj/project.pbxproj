@@ -10,7 +10,7 @@
 		0E3964D82314BB470093738B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3964D72314BB470093738B /* AppDelegate.swift */; };
 		0E3964DF2314BB4A0093738B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3964DE2314BB4A0093738B /* Assets.xcassets */; };
 		0E3964E22314BB4A0093738B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3964E02314BB4A0093738B /* LaunchScreen.storyboard */; };
-		0E3964ED2314BB4A0093738B /* iOSBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3964EC2314BB4A0093738B /* iOSBooksTests.swift */; };
+		0E3964ED2314BB4A0093738B /* BookDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3964EC2314BB4A0093738B /* BookDetailViewModelTests.swift */; };
 		477DA993F6CBE89C179034EE /* Pods_iOSBooksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F20F388C60D311258C5680 /* Pods_iOSBooksTests.framework */; };
 		7447D35E2316C91700E01BD3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D35D2316C91700E01BD3 /* APIClient.swift */; };
 		7447D3602316CB1200E01BD3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D35F2316CB1200E01BD3 /* Reachability.swift */; };
@@ -59,7 +59,7 @@
 		0E3964E12314BB4A0093738B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E3964E32314BB4A0093738B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E3964E82314BB4A0093738B /* iOSBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E3964EC2314BB4A0093738B /* iOSBooksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBooksTests.swift; sourceTree = "<group>"; };
+		0E3964EC2314BB4A0093738B /* BookDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModelTests.swift; sourceTree = "<group>"; };
 		0E3964EE2314BB4A0093738B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F9E4DBC4A549B0B6E5DFAB /* Pods-iOSBooksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBooksTests.release.xcconfig"; path = "Target Support Files/Pods-iOSBooksTests/Pods-iOSBooksTests.release.xcconfig"; sourceTree = "<group>"; };
 		275296C36B2B5A1EBD78A5F1 /* Pods-iOSBooks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBooks.release.xcconfig"; path = "Target Support Files/Pods-iOSBooks/Pods-iOSBooks.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		0E3964EB2314BB4A0093738B /* iOSBooksTests */ = {
 			isa = PBXGroup;
 			children = (
-				0E3964EC2314BB4A0093738B /* iOSBooksTests.swift */,
+				0E3964EC2314BB4A0093738B /* BookDetailViewModelTests.swift */,
 				0E3964EE2314BB4A0093738B /* Info.plist */,
 			);
 			path = iOSBooksTests;
@@ -535,7 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E3964ED2314BB4A0093738B /* iOSBooksTests.swift in Sources */,
+				0E3964ED2314BB4A0093738B /* BookDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

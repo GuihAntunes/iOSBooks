@@ -22,7 +22,7 @@ class BooksListViewModel: BooksListViewModelProtocol {
     
     var items: [Item] = []
     var savedItems: (books: [Item], images: [UIImage]) = ([],[])
-    var service = BooksClient()
+    var service: BooksClientProtocol?
     var startingIndex = 0
     weak var view: BooksListViewControllerPresentable?
     var selectedBook: Item?
@@ -56,11 +56,11 @@ class BooksListViewModel: BooksListViewModelProtocol {
     }
     
     func loadSavedBooks() {
-        savedItems = service.fetchSavedBooks()
+        savedItems = service?.fetchSavedBooks() ?? ([],[])
     }
     
     func loadBooks() {
-        service.fetchBooksList(startingIndex: startingIndex).done { [weak self] (list) in
+        service?.fetchBooksList(startingIndex: startingIndex).done { [weak self] (list) in
             guard let self = self, let items = list.items else { return }
             self.items.append(contentsOf: items)
             self.startingIndex = items.count
