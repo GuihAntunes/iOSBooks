@@ -38,7 +38,8 @@ extension BooksListViewController: BooksListViewControllerPresentable {
         guard var viewModel = viewModel else { return }
         if !viewModel.showFavorites {
             viewModel.showFavorites.toggle()
-            viewModel.loadSavedBooks(shouldShowOnScreen: true)
+            viewModel.loadSavedBooks()
+            reloadView()
             return
         }
         viewModel.showFavorites.toggle()

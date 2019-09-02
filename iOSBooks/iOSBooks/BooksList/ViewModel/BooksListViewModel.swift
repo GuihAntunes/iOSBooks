@@ -10,11 +10,10 @@ import UIKit
 
 protocol BooksListViewModelProtocol {
     func loadBooks()
-    func loadSavedBooks(shouldShowOnScreen reloadView: Bool)
+    func loadSavedBooks()
     func selectBook(atIndexPath indexPath: IndexPath)
-    func presentPreviousStep()
     func numberOfSections() -> Int
-    func numberOfItemsInSection() -> Int
+    func numberOfItemsInSection(_ section: Int) -> Int
     func cellForItem(inCollectionView collectionView: UICollectionView, atIndexPath indexPath: IndexPath) -> UICollectionViewCell
     var showFavorites: Bool { get set }
 }
@@ -22,7 +21,7 @@ protocol BooksListViewModelProtocol {
 class BooksListViewModel: BooksListViewModelProtocol {
     
     var items: [Item] = []
-    var savedItems: [Item] = []
+    var savedItems: (books: [Item], images: [UIImage]) = ([],[])
     var service = BooksClient()
     var startingIndex = 0
     weak var view: BooksListViewControllerPresentable?
@@ -35,30 +34,29 @@ class BooksListViewModel: BooksListViewModelProtocol {
         return 1
     }
     
-    func numberOfItemsInSection() -> Int {
-        return showFavorites ? savedItems.count : items.count
+    func numberOfItemsInSection(_ section: Int = 0) -> Int {
+        return showFavorites ? savedItems.books.count : items.count
     }
     
     func cellForItem(inCollectionView collectionView: UICollectionView, atIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         let cell: BooksCell = collectionView.dequeueReusableCell(for: indexPath)
         let book: Book?
+        var image: UIImage? = nil
         if showFavorites {
-            book = savedItems[indexPath.item].book
+            book = savedItems.books[indexPath.item].book
+            image = savedItems.images[indexPath.item]
         } else {
             book = items[indexPath.item].book
         }
-        cell.setup(withBook: book)
+        cell.setup(withBook: book, andImage: image)
         if indexPath.item == (items.count - 1) && !showFavorites {
             loadBooks()
         }
         return cell
     }
     
-    func loadSavedBooks(shouldShowOnScreen reloadView: Bool = false) {
+    func loadSavedBooks() {
         savedItems = service.fetchSavedBooks()
-        if reloadView {
-            view?.reloadView()
-        }
     }
     
     func loadBooks() {
@@ -79,12 +77,8 @@ class BooksListViewModel: BooksListViewModelProtocol {
     
     func selectBook(atIndexPath indexPath: IndexPath) {
         selectedBook = nil
-        selectedBook = showFavorites ? savedItems[indexPath.item] : items[indexPath.item]
-        selectedBookIsFavorite = savedItems.contains(where: { $0.id == selectedBook?.id })
+        selectedBook = showFavorites ? savedItems.books[indexPath.item] : items[indexPath.item]
+        selectedBookIsFavorite = savedItems.books.contains(where: { $0.id == selectedBook?.id })
         coordinator?.presentNextStep()
-    }
-    
-    func presentPreviousStep() {
-        coordinator?.presentPreviousStep()
     }
 }

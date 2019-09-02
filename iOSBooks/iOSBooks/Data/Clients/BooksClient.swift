@@ -23,7 +23,7 @@ class BooksClient {
         return apiClient.request(model: BooksList.self, BooksAPI.list(startingIndex: index).request)
     }
     
-    func fetchSavedBooks() -> [Item] {
+    func fetchSavedBooks() -> (books: [Item], images: [UIImage]) {
         return coreDataClient.fetchAllSavedBooks()
     }
     
