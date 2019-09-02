@@ -16,10 +16,8 @@ Antes de rodar o projeto, por favor, rode 'pod install' dentro da pasta onde se 
 - **Injector:** Camada que injeta as dependências de cada tela/view model do app
 
 # Fluxo de camadas do app (Como as camadas se comunicam)
-AppDelegate -> Coordinator <-> ViewModel <-> View
-                   |               |
-                   V               V
-                Injector        Service
+
+AppDelegate -> Coordinator (Injector) <-> ViewModel (Service) <-> View
 
 # Dependencias
 - **Kingfisher:** Biblioteca de image loader e cacher para baixar as imagens da Internet
